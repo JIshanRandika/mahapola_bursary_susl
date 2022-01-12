@@ -6,8 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\bursary_vc_or_reg_comment;
 use App\Models\bursary_ar_comment;
 use App\Models\bursary_status;
-
-
+use App\Models\mahapola_ar_comment;
 
 
 class HomeController extends Controller
@@ -32,12 +31,14 @@ class HomeController extends Controller
     {
         $bursary_ar_comment = bursary_ar_comment::all();
 
+        $mahapola_ar_comment = mahapola_ar_comment::all();
+
         $bursary_vc_or_reg_comment = bursary_vc_or_reg_comment::all();
 //        return view('home',compact('arcomment'));
 
         $bursary_status = bursary_status::all();
 
-        return view('home',compact('bursary_status','bursary_ar_comment','bursary_vc_or_reg_comment'));
+        return view('home',compact('bursary_status','bursary_ar_comment','bursary_vc_or_reg_comment','mahapola_ar_comment'));
     }
 
 
