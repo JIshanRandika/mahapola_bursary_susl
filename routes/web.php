@@ -36,6 +36,7 @@ Route::resource('bursary_statuses', \App\Http\Controllers\bursary_status_Control
 //Route::resource('v_cor_reg_comments', \App\Http\Controllers\VCorRegCommentController::class);
 Route::resource('bursary_vc_or_reg_comments', \App\Http\Controllers\bursary_vc_or_reg_comment_Controller::class);
 Route::resource('bursary_ar_comments', \App\Http\Controllers\bursary_ar_comment_Controller::class);
+Route::resource('mahapola_ar_comments', \App\Http\Controllers\mahapola_ar_comment_Controller::class);
 
 
 Route::get('/getPDF', [App\Http\Controllers\PDFController::class, 'download']);

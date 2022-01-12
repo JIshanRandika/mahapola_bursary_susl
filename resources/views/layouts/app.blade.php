@@ -59,11 +59,11 @@
 
                         @else
 
-                            @if (1>0)
-                                <a class="dropdown-item" href="#" aria-expanded="false" v-pre>
-                                    Load Bursary
-                                </a>
-                            @endif
+{{--                            @if (1>0)--}}
+{{--                                <a class="dropdown-item" href="#" aria-expanded="false" v-pre>--}}
+{{--                                    Load Bursary--}}
+{{--                                </a>--}}
+{{--                            @endif--}}
 
 {{--                            <li class="nav-item dropdown">--}}
                                 <a class="dropdown-item" href="#" aria-expanded="false" v-pre>
