@@ -1159,7 +1159,7 @@
                                                 <h6 class="card-text">Comments by Assistant Registrar:</h6>
                                                 @foreach($mahapola_ar_comment as $arc)
                                                     @if($s->id==$arc->status_id)
-                                                        <p>{{$arc->ar_comment}}</p>
+                                                        <p>{{$arc->mahapola_ar_comment}}</p>
                                                     @endif
                                                 @endforeach
                                             @endif
@@ -1199,7 +1199,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1215,7 +1215,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1271,7 +1271,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1287,7 +1287,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1343,7 +1343,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1359,7 +1359,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1413,7 +1413,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1429,7 +1429,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1484,7 +1484,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1500,7 +1500,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1555,7 +1555,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1571,7 +1571,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1626,7 +1626,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1642,7 +1642,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1696,7 +1696,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="ar_comment"
+                                                                <input type="text" name="mahapola_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -1712,7 +1712,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1764,7 +1764,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('statuses.store') }}" method="POST">
+                            <form action="{{ route('mahapola_statuses.store') }}" method="POST">
                                 @csrf
 
                                 <div class="row">
@@ -1898,13 +1898,13 @@
                                                 <h6 class="card-text">Comments by Assistant Registrar:</h6>
                                                 @foreach($mahapola_ar_comment as $arc)
                                                     @if($s->id==$arc->status_id)
-                                                        <p>{{$arc->ar_comment}}</p>
+                                                        <p>{{$arc->mahapola_ar_comment}}</p>
                                                     @endif
                                                 @endforeach
                                             @endif
 
                                             @if($s->level=='1')
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1921,7 +1921,7 @@
                                             @endif
 
                                             @if($s->level=='3')
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1938,7 +1938,7 @@
                                             @endif
 
                                             @if($s->level=='4')
-                                                <form action="{{ route('statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -1977,5 +1977,7 @@
             </div>
         </div>
     </div>
+
+
 
 @endsection

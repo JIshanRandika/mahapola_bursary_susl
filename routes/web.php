@@ -31,6 +31,8 @@ Route::post('/home/updatemahapolaname', [App\Http\Controllers\HomeController::cl
 
 //Route::resource('statuses', \App\Http\Controllers\StatusController::class);
 Route::resource('bursary_statuses', \App\Http\Controllers\bursary_status_Controller::class);
+Route::resource('mahapola_statuses', \App\Http\Controllers\mahapola_status_Controller::class);
+
 
 //Route::resource('arcomments', \App\Http\Controllers\ArcommentController::class);
 //Route::resource('v_cor_reg_comments', \App\Http\Controllers\VCorRegCommentController::class);
@@ -46,3 +48,13 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('permissions-admin-superadmin',['middleware'=>'check-permission:admin|superadmin','uses'=>'HomeController@adminSuperadmin']);
     Route::get('permissions-superadmin',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@superadmin']);
 });
+
+//Route::get('/tab1',function (){
+//    return view('welcome');
+//});
+//Route::get('/tab2',function (){
+//    return view('welcome');
+//});
+//Route::get('/tab3',function (){
+//    return view('welcome');
+//});
