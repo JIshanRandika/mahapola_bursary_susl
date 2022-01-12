@@ -7,6 +7,7 @@ use App\Models\bursary_vc_or_reg_comment;
 use App\Models\bursary_ar_comment;
 use App\Models\bursary_status;
 use App\Models\mahapola_ar_comment;
+use App\Models\mahapola_status;
 
 
 class HomeController extends Controller
@@ -38,7 +39,9 @@ class HomeController extends Controller
 
         $bursary_status = bursary_status::all();
 
-        return view('home',compact('bursary_status','bursary_ar_comment','bursary_vc_or_reg_comment','mahapola_ar_comment'));
+        $mahapola_status = mahapola_status::all();
+
+        return view('home',compact('bursary_status','bursary_ar_comment','bursary_vc_or_reg_comment','mahapola_ar_comment','mahapola_status'));
     }
 
 

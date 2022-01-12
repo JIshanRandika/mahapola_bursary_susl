@@ -1143,7 +1143,7 @@
 
                         @if(checkPermission(['vice_chancellor','registrar','finance_division_clerk','student']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
 
                                 @if($s->level!=='0')
                                     <div class="card text-center m-5">
@@ -1178,7 +1178,7 @@
 
                         @if(checkPermission(['graduate_studies_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Graduate Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1250,7 +1250,7 @@
                         {{--                            Assistant Registrar of The Faculty of Agriculture Science--}}
                         @if(checkPermission(['agriculture_science_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Agriculture Science')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1322,7 +1322,7 @@
 
                         @if(checkPermission(['applied_sciences_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Applied Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1392,7 +1392,7 @@
                         {{--                            Assistant Registrar of The Faculty of Geomatics--}}
                         @if(checkPermission(['geomatics_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Geomatics')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1463,7 +1463,7 @@
                         {{--                            Assistant Registrar of The Faculty of Management Studies--}}
                         @if(checkPermission(['management_studies_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1534,7 +1534,7 @@
                         {{--                            Assistant Registrar of The Faculty of Medicine--}}
                         @if(checkPermission(['medicine_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Medicine')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1605,7 +1605,7 @@
 
                         @if(checkPermission(['social_sciences_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Social Sciences & Languages')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1675,7 +1675,7 @@
                         {{--                            Assistant Registrar of The Faculty of Technology--}}
                         @if(checkPermission(['technology_assistant_registrar']))
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
                                 @if($s->level!=='0' && $s->faculty=='Technology')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
@@ -1878,7 +1878,7 @@
 
 
 
-                            @foreach($status as $s)
+                            @foreach($mahapola_status as $s)
 
 
                                 @if($s->level!=='0')
