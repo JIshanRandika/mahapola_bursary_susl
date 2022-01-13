@@ -21,6 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/mahapola', [App\Http\Controllers\MahapolaController::class, 'index'])->name('mahapola');
+Route::get('/bursary', [App\Http\Controllers\BursaryController::class, 'index'])->name('bursary');
+
 
 Auth::routes();
 
@@ -49,12 +52,12 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('permissions-superadmin',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@superadmin']);
 });
 
-//Route::get('/tab1',function (){
-//    return view('welcome');
-//});
-//Route::get('/tab2',function (){
-//    return view('welcome');
-//});
-//Route::get('/tab3',function (){
-//    return view('welcome');
-//});
+Route::get('/tab1',function (){
+    return view('home');
+});
+Route::get('/tab2',function (){
+    return view('home');
+});
+Route::get('/tab3',function (){
+    return view('home');
+});
