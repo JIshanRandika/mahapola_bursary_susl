@@ -23,6 +23,16 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/mahapola', [App\Http\Controllers\MahapolaController::class, 'index'])->name('mahapola');
 Route::get('/bursary', [App\Http\Controllers\BursaryController::class, 'index'])->name('bursary');
+Route::get('/appliedmahapola', [App\Http\Controllers\AppliedMahapolaController::class, 'index'])->name('appliedmahapola');
+Route::get('/geomahapola', [App\Http\Controllers\GeoMahapolaController::class, 'index'])->name('geomahapola');
+Route::get('/gsdmahapola', [App\Http\Controllers\GsMahapolaController::class, 'index'])->name('gsdmahapola');
+Route::get('/manmahapola', [App\Http\Controllers\ManMahapolaController::class, 'index'])->name('manmahapola');
+Route::get('/medmahapola', [App\Http\Controllers\MedMahapolaController::class, 'index'])->name('medmahapola');
+Route::get('/socialmahapola', [App\Http\Controllers\SocialMahapolaController::class, 'index'])->name('socialmahapola');
+Route::get('/techmahapola', [App\Http\Controllers\TechMahapolaController::class, 'index'])->name('techmahapola');
+Route::get('/agrimahapola', [App\Http\Controllers\AgriMahapolaController::class, 'index'])->name('agrimahapola');
+
+
 
 
 Auth::routes();

@@ -8,6 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css">
+
+{{--        <link href="{{ asset('../css/app.css"') }}" rel="stylesheet">--}}
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- Styles -->
@@ -25,46 +28,31 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+
+
+        <div  class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a style="color: #e2e8f0" href="{{ url('/home') }}" class="welcomebutton text-sm text-gray-700 dark:text-gray-500">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                            <a style="color: #e2e8f0" href="{{ route('login') }}" class="welcomebutton text-sm text-gray-700 dark:text-gray-500">Log in</a>
+
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a style="color: #e2e8f0" href="{{ route('register') }}" class="welcomebutton ml-4 text-sm text-gray-700 dark:text-gray-500">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
-{{--                <ul class="nav nav-tabs" role="tablist">--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">First Panel</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Second Panel</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Third Panel</a>--}}
-{{--                    </li>--}}
-{{--                </ul><!-- Tab panes -->--}}
-
-{{--                <div class="tab-content">--}}
-{{--                    <div class="tab-pane active" id="tabs-1" role="tabpanel">--}}
-{{--                        <p>First Panel</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="tab-pane" id="tabs-2" role="tabpanel">--}}
-{{--                        <p>Second Panel</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="tab-pane" id="tabs-3" role="tabpanel">--}}
-{{--                        <p>Third Panel</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-            <div>
-                <h1>Bursary Internal Process Checker</h1>
-                <h5>Sabaragamuwa University of Sri Lanka</h5>
-            </div>
+                <div class="welcomebgimage">
+{{--            <img src="/images/img.jpeg">--}}
+                    <div class="wecomebox" style="background: #6b7280">
+                        <h1 style="font-weight: bold">Welcome To</h1>
+                        <h2>Mahapola & Bursary Internal Process Checker</h2>
+                        <h5>Sabaragamuwa University of Sri Lanka</h5>
+                    </div>
+                </div>
+        </div>
     </body>
 </html>

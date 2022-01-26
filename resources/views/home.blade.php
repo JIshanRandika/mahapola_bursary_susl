@@ -2,13 +2,18 @@
 
 
 @section('content')
-    <div class="container">
-        <a class="dropdown-item" href={{url('mahapola')}} aria-expanded="false" v-pre>
+    <div class="welcomebgimage">
+        <div class="row justify-content-center">
+        <a class="mbutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
             Mahapola
         </a>
-        <a class="dropdown-item" href={{url('bursary')}} aria-expanded="false" v-pre>
+            <a class="dropdown-item">
+
+            </a>
+        <a class="bbutton " href={{url('bursary')}} aria-expanded="false" v-pre>
             Bursary
         </a>
+        </div>
     </div>
 
 

@@ -6,6 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="/css/style.css">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -22,7 +23,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav style="background-color: #6b7280" class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
 {{--                    {{ config('app.name', 'Laravel') }}--}}
@@ -66,12 +67,12 @@
 {{--                            @endif--}}
 
 {{--                            <li class="nav-item dropdown">--}}
-                                <a class="dropdown-item" href="#" aria-expanded="false" v-pre>
+                                <a style="color: #a8a8a8" class="dropdown-item" href="#" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
 {{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a style="color: #a8a8a8" class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -88,8 +89,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main >
+{{--            <div class="welcomebgimage">--}}
+                @yield('content')
+{{--            </div>--}}
+
         </main>
     </div>
 </body>

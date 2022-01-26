@@ -23,6 +23,7 @@ class CreateMahapolaStatusesTable extends Migration
             $table->string('level')->default('1');
             $table->timestamps();
         });
+//        DB::unprepared('ALTER TABLE `kitchen` DROP PRIMARY KEY, ADD PRIMARY KEY (  `id` ,  `restaurant_id` )');
     }
 
     /**

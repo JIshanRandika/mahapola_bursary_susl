@@ -60,7 +60,7 @@
 
                             @foreach($mahapola_status as $s)
 
-                                @if($s->level!=='0')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -94,7 +94,7 @@
                         @if(checkPermission(['graduate_studies_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Graduate Studies')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -105,7 +105,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Graduate Studies')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -166,7 +166,7 @@
                         @if(checkPermission(['agriculture_science_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -177,7 +177,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Agriculture Science')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -238,7 +238,7 @@
                         @if(checkPermission(['applied_sciences_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -249,7 +249,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Applied Sciences')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -308,7 +308,7 @@
                         @if(checkPermission(['geomatics_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Geomatics')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -319,7 +319,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Geomatics')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -390,7 +390,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Management Studies')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -450,7 +450,7 @@
                         @if(checkPermission(['medicine_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Medicine')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -461,7 +461,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Medicine')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -532,7 +532,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Social Sciences & Languages')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -591,7 +591,7 @@
                         @if(checkPermission(['technology_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Technology')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -602,7 +602,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Technology')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -796,7 +796,7 @@
                             @foreach($mahapola_status as $s)
 
 
-                                @if($s->level!=='0')
+                                @if($s->level!=='0' && $s->faculty=='Management Studies')
 
 
 
@@ -809,7 +809,7 @@
                                             <h6 class="card-text">{{ $s->status }}</h6>
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
-                                            @if($s->level!=='1')
+                                            @if($s->level!=='1' && $s->faculty=='Management Studies')
                                                 <h6 class="card-text">Comments by Assistant Registrar:</h6>
                                                 @foreach($mahapola_ar_comment as $arc)
                                                     @if($s->id==$arc->status_id)
@@ -818,7 +818,7 @@
                                                 @endforeach
                                             @endif
 
-                                            @if($s->level=='1')
+                                            @if($s->level=='1' && $s->faculty=='Management Studies')
                                                 <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -835,7 +835,7 @@
                                                 </form>
                                             @endif
 
-                                            @if($s->level=='3')
+                                            @if($s->level=='3' && $s->faculty=='Management Studies')
                                                 <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -852,7 +852,7 @@
                                                 </form>
                                             @endif
 
-                                            @if($s->level=='4')
+                                            @if($s->level=='4' && $s->faculty=='Management Studies' )
                                                 <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')

@@ -10,15 +10,40 @@
     {{--=================================--}}
 
 
-    <div class="container">
-        <a class="dropdown-item" href={{url('mahapola')}} aria-expanded="false" v-pre>
+    <div class="welcomebgimage">
+        <a class="welcomebutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
             Switch to Mahapola
         </a>
-        <div class="row">
+        <div style="margin-top: 20px" class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-
-
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        All
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Graduated Studies
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Agriculture Science
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Applied Sciences
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Geomatics
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Management Studies
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Medicine
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Social Sciences & Languages
+                    </a>
+                    <a class="facultybuttons welcomebutton" href={{url('#')}} aria-expanded="false" v-pre>
+                        Technology
+                    </a>
                     <div class="panel-body">
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success">
@@ -855,7 +880,7 @@
 
                         @if(checkPermission(['student_affairs_division_clerk']))
 
-                            <div class="row">
+                            <div style="margin: 20px" class="row">
                                 <div class="col-lg-12 margin-tb">
                                     <div class="pull-left">
                                         <h2>Add New Process</h2>
@@ -877,7 +902,7 @@
                             <form action="{{ route('bursary_statuses.store') }}" method="POST">
                                 @csrf
 
-                                <div class="row">
+                                <div style="margin: 20px" class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong>Batch:</strong>
