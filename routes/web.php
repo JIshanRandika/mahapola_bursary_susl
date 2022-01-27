@@ -22,16 +22,23 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/mahapola', [App\Http\Controllers\MahapolaController::class, 'index'])->name('mahapola');
-Route::get('/bursary', [App\Http\Controllers\BursaryController::class, 'index'])->name('bursary');
-Route::get('/appliedmahapola', [App\Http\Controllers\AppliedMahapolaController::class, 'index'])->name('appliedmahapola');
 Route::get('/geomahapola', [App\Http\Controllers\GeoMahapolaController::class, 'index'])->name('geomahapola');
-Route::get('/gsdmahapola', [App\Http\Controllers\GsMahapolaController::class, 'index'])->name('gsdmahapola');
+Route::get('/appliedmahapola', [App\Http\Controllers\AppliedMahapolaController::class, 'index'])->name('appliedmahapola');
 Route::get('/manmahapola', [App\Http\Controllers\ManMahapolaController::class, 'index'])->name('manmahapola');
 Route::get('/medmahapola', [App\Http\Controllers\MedMahapolaController::class, 'index'])->name('medmahapola');
 Route::get('/socialmahapola', [App\Http\Controllers\SocialMahapolaController::class, 'index'])->name('socialmahapola');
 Route::get('/techmahapola', [App\Http\Controllers\TechMahapolaController::class, 'index'])->name('techmahapola');
 Route::get('/agrimahapola', [App\Http\Controllers\AgriMahapolaController::class, 'index'])->name('agrimahapola');
 
+Route::get('/bursary', [App\Http\Controllers\BursaryController::class, 'index'])->name('bursary');
+Route::get('/appliedbursary', [App\Http\Controllers\AppliedBursaryController::class, 'index'])->name('appliedbursary');
+Route::get('/geobursary', [App\Http\Controllers\GeoBursaryController::class, 'index'])->name('geobursary');
+Route::get('/gsdbursary', [App\Http\Controllers\GsBursaryController::class, 'index'])->name('gsdbursary');
+Route::get('/manbursary', [App\Http\Controllers\ManBursaryController::class, 'index'])->name('manbursary');
+Route::get('/medbursary', [App\Http\Controllers\MedBursaryController::class, 'index'])->name('medbursary');
+Route::get('/socialbursary', [App\Http\Controllers\SocialBursaryController::class, 'index'])->name('socialbursary');
+Route::get('/techbursary', [App\Http\Controllers\TechBursaryController::class, 'index'])->name('techbursary');
+Route::get('/agribursary', [App\Http\Controllers\AgriBursaryController::class, 'index'])->name('agribursary');
 
 
 
