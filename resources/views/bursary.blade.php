@@ -14,7 +14,7 @@
         <a class="welcomebutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
             Switch to Mahapola
         </a>
-        <div style="margin-top: 20px" class="row">
+        <div style="margin-top: 20px" class="myrow">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <a class="facultybuttons welcomebutton" href={{url('bursary')}} aria-expanded="false" v-pre>
