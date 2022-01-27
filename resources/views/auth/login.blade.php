@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="welcomebgimage">
-    <div class="row justify-content-center">
+    <div class="myrow justify-content-center">
         <div class="col-md-8 marginlr">
             <div class="card" style="margin-bottom: 100px">
                 <div class="card-header">{{ __('Login') }}</div>

@@ -16,7 +16,7 @@
         </a>
 
 
-        <div style="margin-top: 20px" class="row">
+        <div style="margin-top: 20px" class="myrow">
 
             <div class="col-md-12">
 
