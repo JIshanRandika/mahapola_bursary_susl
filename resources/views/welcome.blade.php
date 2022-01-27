@@ -47,7 +47,7 @@
             @endif
                 <div class="welcomebgimage">
 {{--            <img src="/images/img.jpeg">--}}
-                    <div class="wecomebox" style="background: #6b7280">
+                    <div class="wecomebox marginlr" style="background: #6b7280">
                         <h1 style="font-weight: bold">Welcome To</h1>
                         <h2>Mahapola & Bursary Internal Process Checker</h2>
                         <h5>Sabaragamuwa University of Sri Lanka</h5>
