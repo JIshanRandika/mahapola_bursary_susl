@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="welcomebgimage">
+    <div class="">
         <div class="myrow justify-content-center">
         <a class="mbutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
             Mahapola

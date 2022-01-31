@@ -10,7 +10,7 @@
     {{--============Mahapola=============--}}
     {{--=================================--}}
 
-    <div class="welcomebgimage">
+    <div class="">
         <a class="welcomebutton" href={{url('bursary')}} aria-expanded="false" v-pre>
             Switch to Bursary
         </a>

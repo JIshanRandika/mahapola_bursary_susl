@@ -10,7 +10,7 @@
     {{--=================================--}}
 
 
-    <div class="welcomebgimage">
+    <div class="">
         <a class="welcomebutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
             Switch to Mahapola
         </a>

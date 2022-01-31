@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="welcomebgimage">
+<div class="container">
     <div class="myrow justify-content-center">
         <div class="col-md-8 marginlr">
             <div class="card" style="margin-bottom: 100px">
