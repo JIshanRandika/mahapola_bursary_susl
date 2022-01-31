@@ -20,11 +20,11 @@
                     <a class="facultybuttons welcomebutton" href={{url('bursary')}} aria-expanded="false" v-pre>
                         All
                     </a>
-                    <a class="facultybuttons welcomebutton" href={{url('gsdbursary')}} aria-expanded="false" v-pre>
-                        Graduated Studies
-                    </a>
+{{--                    <a class="facultybuttons welcomebutton" href={{url('gsdbursary')}} aria-expanded="false" v-pre>--}}
+{{--                        Graduated Studies--}}
+{{--                    </a>--}}
                     <a class="facultybuttons welcomebutton" href={{url('agribursary')}} aria-expanded="false" v-pre>
-                        Agriculture Science
+                        Agricultural Sciences
                     </a>
                     <a class="facultybuttons welcomebutton" href={{url('appliedbursary')}} aria-expanded="false" v-pre>
                         Applied Sciences
@@ -55,7 +55,7 @@
 
                             @foreach($bursary_status as $s)
 
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -99,7 +99,7 @@
 
                             @foreach($bursary_status as $s)
 
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -165,7 +165,7 @@
 
                             @foreach($bursary_status as $s)
 
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -241,7 +241,7 @@
 
                             @foreach($bursary_status as $s)
 
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -314,7 +314,7 @@
                         @if(checkPermission(['graduate_studies_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science' )
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences' )
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             Installment for: {{ $s->bursary_year }} {{ $s->bursary_month }}
@@ -386,7 +386,7 @@
                         @if(checkPermission(['agriculture_science_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -397,7 +397,7 @@
                                             <p class="card-text">{{ $s->bursary_description }}</p>
 
 
-                                            @if($s->level=='2' && $s->faculty=='Agriculture Science')
+                                            @if($s->level=='2' && $s->faculty=='Agricultural Sciences')
 
                                                 <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -458,7 +458,7 @@
                         @if(checkPermission(['applied_sciences_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -528,7 +528,7 @@
                         @if(checkPermission(['geomatics_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -599,7 +599,7 @@
                         @if(checkPermission(['management_studies_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -670,7 +670,7 @@
                         @if(checkPermission(['medicine_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -741,7 +741,7 @@
                         @if(checkPermission(['social_sciences_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -811,7 +811,7 @@
                         @if(checkPermission(['technology_assistant_registrar']))
 
                             @foreach($bursary_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -915,8 +915,8 @@
 
                                             <select name="faculty" class="custom-select" id="inputGroupSelect01" >
                                                 <option selected>Choose...</option>
-                                                <option value="Graduate Studies">Graduate Studies</option>
-                                                <option value="Agriculture Science">Agriculture Science</option>
+{{--                                                <option value="Graduate Studies">Graduate Studies</option>--}}
+                                                <option value="Agricultural Sciences">Agricultural Sciences</option>
                                                 <option value="Applied Sciences">Applied Sciences</option>
                                                 <option value="Geomatics">Geomatics</option>
                                                 <option value="Management Studies">Management Studies</option>
@@ -1018,7 +1018,7 @@
                             @foreach($bursary_status as $s)
 
 
-                                @if($s->level!=='0' && $s->faculty=='Agriculture Science')
+                                @if($s->level!=='0' && $s->faculty=='Agricultural Sciences')
 
 
 

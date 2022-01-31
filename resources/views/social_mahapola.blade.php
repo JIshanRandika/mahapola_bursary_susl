@@ -24,11 +24,11 @@
                     <a class="facultybuttons welcomebutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
                         All
                     </a>
-                    <a class="facultybuttons welcomebutton" href={{url('gsdmahapola')}} aria-expanded="false" v-pre>
-                        Graduated Studies
-                    </a>
+{{--                    <a class="facultybuttons welcomebutton" href={{url('gsdmahapola')}} aria-expanded="false" v-pre>--}}
+{{--                        Graduated Studies--}}
+{{--                    </a>--}}
                     <a class="facultybuttons welcomebutton" href={{url('agrimahapola')}} aria-expanded="false" v-pre>
-                        Agriculture Science
+                        Agricultural Sciences
                     </a>
                     <a class="facultybuttons welcomebutton" href={{url('appliedmahapola')}} aria-expanded="false" v-pre>
                         Applied Sciences
@@ -162,7 +162,7 @@
                         @endif
 
 
-                        {{--                            Assistant Registrar of The Faculty of Agriculture Science--}}
+                        {{--                            Assistant Registrar of The Faculty of Agricultural Sciences--}}
                         @if(checkPermission(['agriculture_science_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
@@ -177,7 +177,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2' && $s->faculty=='Agriculture Science')
+                                            @if($s->level=='2' && $s->faculty=='Agricultural Sciences')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -695,8 +695,8 @@
 
                                             <select name="faculty" class="custom-select" id="inputGroupSelect01" >
                                                 <option selected>Choose...</option>
-                                                <option value="Graduate Studies">Graduate Studies</option>
-                                                <option value="Agriculture Science">Agriculture Science</option>
+{{--                                                <option value="Graduate Studies">Graduate Studies</option>--}}
+                                                <option value="Agricultural Sciences">Agricultural Sciences</option>
                                                 <option value="Applied Sciences">Applied Sciences</option>
                                                 <option value="Geomatics">Geomatics</option>
                                                 <option value="Management Studies">Management Studies</option>
