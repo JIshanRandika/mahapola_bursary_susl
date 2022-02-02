@@ -32,7 +32,7 @@
 
         <div  class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a style="color: #e2e8f0" href="{{ url('/home') }}" class="welcomebutton text-sm text-gray-700 dark:text-gray-500">Home</a>
                     @else
@@ -46,12 +46,15 @@
                 </div>
             @endif
                 <div class="welcomebgimage">
-{{--            <img src="/images/img.jpeg">--}}
-                    <div class="wecomebox marginlr" style="background: #6b7280">
-                        <h1 style="font-weight: bold">Welcome To</h1>
-                        <h2>Mahapola & Bursary Internal Process Checker</h2>
-                        <h5>Sabaragamuwa University of Sri Lanka</h5>
+                    <div class="mycenter">
+                        <div class="wecomebox marginlr" style="background: #6b7280">
+                            <h1 style="font-weight: bold">Welcome To</h1>
+                            <h2>Mahapola & Bursary Internal Process Checker</h2>
+                            <h5>Sabaragamuwa University of Sri Lanka</h5>
+                        </div>
                     </div>
+{{--            <img src="/images/img.jpeg">--}}
+
                 </div>
         </div>
     </body>
