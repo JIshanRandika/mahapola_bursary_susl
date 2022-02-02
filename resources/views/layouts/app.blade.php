@@ -8,8 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/style.css">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
+    <title>Mahapola/Bursary</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
