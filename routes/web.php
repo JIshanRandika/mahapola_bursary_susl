@@ -70,6 +70,13 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('permissions-superadmin',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@superadmin']);
 });
 
+
+Route::get('/edit-records','App\Http\Controllers\UserDetailsController@index');
+Route::get('edit/{id}','App\Http\Controllers\UserDetailsController@show');
+Route::post('edit/{id}','App\Http\Controllers\UserDetailsController@edit');
+Route::get('delete/{id}','App\Http\Controllers\UserDetailsController@destroy');
+
+
 Route::get('/tab1',function (){
     return view('home');
 });

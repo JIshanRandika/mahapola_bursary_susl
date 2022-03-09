@@ -14,6 +14,11 @@
         <a class="welcomebutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
             Switch to Mahapola
         </a>
+        @if(checkPermission(['admin']))
+            <a class="welcomebutton" href={{url('edit-records')}} aria-expanded="false" v-pre>
+                Users
+            </a>
+        @endif
         <div style="margin-top: 20px" class="myrow">
             <div class="col-md-12">
                 <div class="panel panel-default">

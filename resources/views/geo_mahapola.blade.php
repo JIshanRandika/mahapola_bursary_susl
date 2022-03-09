@@ -14,7 +14,11 @@
         <a class="welcomebutton" href={{url('bursary')}} aria-expanded="false" v-pre>
             Switch to Bursary
         </a>
-
+        @if(checkPermission(['admin']))
+            <a class="welcomebutton" href={{url('edit-records')}} aria-expanded="false" v-pre>
+                Users
+            </a>
+        @endif
 
         <div style="margin-top: 20px" class="myrow">
 

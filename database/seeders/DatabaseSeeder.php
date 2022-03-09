@@ -18,6 +18,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $user = [
             [
+                'name'=>'I am Admin',
+                'email'=>'admin@gmail.com',
+                'is_permission'=>'-1',
+                'password'=> bcrypt('123456'),
+            ],
+            [
                 'name'=>'Vice Chancellor',
                 'email'=>'vc@gmail.com',
                 'is_permission'=>'1',
@@ -30,7 +36,7 @@ class DatabaseSeeder extends Seeder
                 'password'=> bcrypt('123456'),
             ],
             [
-                'name'=>'Assistant Registrar of The Faculty of Graduate Studies"',
+                'name'=>'Assistant Registrar of The Faculty of Graduate Studies',
                 'email'=>'graduatear@gmail.com',
                 'is_permission'=>'31',
                 'password'=> bcrypt('123456'),
