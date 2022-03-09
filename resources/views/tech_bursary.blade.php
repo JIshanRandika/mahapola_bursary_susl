@@ -22,6 +22,7 @@
         <div style="margin-top: 20px" class="myrow">
             <div class="col-md-12">
                 <div class="panel panel-default">
+                    @include('component.faculty_bursary')
 
                     <div class="panel-body">
                         @if ($message = Session::get('success'))

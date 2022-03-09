@@ -23,7 +23,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
 
-                    @include('component.faculty')
+                    @include('component.faculty_bursary')
 
 
                     <div class="panel-body">

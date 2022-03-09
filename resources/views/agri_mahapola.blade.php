@@ -25,7 +25,7 @@
             <div class="col-md-12">
 
                 <div class="panel panel-default">
-                    @include('component.faculty')
+                    @include('component.faculty_mahapola')
 
 
                     <div class="panel-body">
