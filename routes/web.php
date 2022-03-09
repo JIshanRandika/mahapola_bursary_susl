@@ -76,6 +76,10 @@ Route::get('edit/{id}','App\Http\Controllers\UserDetailsController@show');
 Route::post('edit/{id}','App\Http\Controllers\UserDetailsController@edit');
 Route::get('delete/{id}','App\Http\Controllers\UserDetailsController@destroy');
 
+Route::get('bsedit/{id}','App\Http\Controllers\BursaryStatusesDetailsController@show');
+Route::post('bsedit/{id}','App\Http\Controllers\BursaryStatusesDetailsController@edit');
+Route::get('bsdelete/{id}','App\Http\Controllers\BursaryStatusesDetailsController@destroy');
+
 
 Route::get('/tab1',function (){
     return view('home');
