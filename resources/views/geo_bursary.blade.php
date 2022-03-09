@@ -963,6 +963,16 @@
                                                 <option value="Installment 38">Installment 38</option>
                                                 <option value="Installment 39">Installment 39</option>
                                                 <option value="Installment 40">Installment 40</option>
+                                                <option value="Installment 41">Installment 41</option>
+                                                <option value="Installment 42">Installment 42</option>
+                                                <option value="Installment 43">Installment 43</option>
+                                                <option value="Installment 44">Installment 44</option>
+                                                <option value="Installment 45">Installment 45</option>
+                                                <option value="Installment 46">Installment 46</option>
+                                                <option value="Installment 47">Installment 47</option>
+                                                <option value="Installment 48">Installment 48</option>
+                                                <option value="Installment 49">Installment 49</option>
+                                                <option value="Installment 50">Installment 50</option>
                                             </select>
 
                                             {{--                                            <input type="text" name="faculty" class="form-control"--}}
