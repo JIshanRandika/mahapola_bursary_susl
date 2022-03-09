@@ -33,6 +33,7 @@
                             </div>
                         @endif
 
+{{--=========================================--}}
                             @if(checkPermission(['admin']))
 
                                 @foreach($bursary_status as $s)
@@ -71,7 +72,7 @@
                                             </div>
                                             <div class="card-footer text-muted">
                                                 <a href = 'bsedit/{{ $s->id }}'>View</a>
-                                                <a >Delete</a>
+                                                <a href = 'bsdelete/{{ $s->id }}'>Delete</a>
                                                 Last update: {{ $s->updated_at }}
                                             </div>
                                         </div>

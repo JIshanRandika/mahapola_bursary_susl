@@ -31,6 +31,56 @@
                             </div>
                         @endif
 
+
+
+                            {{--=========================================--}}
+                            @if(checkPermission(['admin']))
+
+                                @foreach($bursary_status as $s)
+
+                                    @if($s->level!=='0')
+
+                                        <div class="card text-center m-5">
+                                            <div class="card-header">
+
+                                                {{ $s->installment_name }}
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                                <h6 class="card-text">{{ $s->status }}</h6>
+                                                <p class="card-text">{{ $s->bursary_description }}</p>
+
+                                                @if($s->level!=='1')
+                                                    <h6 class="card-text">Comments by Assistant Registrar:</h6>
+                                                    @foreach($bursary_ar_comment as $arc)
+                                                        @if($s->id==$arc->status_id)
+                                                            <p>{{$arc->bursary_ar_comment}}</p>
+                                                        @endif
+                                                    @endforeach
+
+                                                @endif
+
+                                                @if($s->level!=='1'&&$s->level!=='2'&&$s->level!=='3')
+                                                    <h6 class="card-text">Comments by Registrar/VC:</h6>
+                                                    @foreach($bursary_vc_or_reg_comment as $vrc)
+                                                        @if($s->id==$vrc->status_id)
+                                                            <p>{{$vrc->bursary_vc_or_reg_comment}}</p>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                <a href = 'bsedit/{{ $s->id }}'>View</a>
+                                                <a href = 'bsdelete/{{ $s->id }}'>Delete</a>
+                                                Last update: {{ $s->updated_at }}
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
+
+                            {{--                        =======================================--}}
                         @if(checkPermission(['student']))
 
                             @foreach($bursary_status as $s)
