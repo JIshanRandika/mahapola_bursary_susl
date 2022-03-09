@@ -12,7 +12,7 @@
         @endif
         <div class="card-body">
             <div class="mb-4">
-                <form action = "/bsedit/<?php echo $bursary_statuses[0]->id; ?>" method = "post">
+                <form action = "/msedit/<?php echo $mahapola_statuses[0]->id; ?>" method = "post">
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                     <table width="90%">
                         <tr>
@@ -21,19 +21,19 @@
                             </td>
                             <td width="70%">
                                 <input  class="form-control" type = 'text' name = 'batch'
-                                        value = '<?php echo$bursary_statuses[0]->batch; ?>'/> </td>
+                                        value = '<?php echo$mahapola_statuses[0]->batch; ?>'/> </td>
                         </tr>
                         <tr>
                             <td width="30%">
                                 Faculty
                             </td>
                             <td width="70%">
-{{--                                <input  class="form-control" type = 'text' name = 'faculty'--}}
-{{--                                        value = '<?php echo$bursary_statuses[0]->faculty; ?>'/>--}}
+                                {{--                                <input  class="form-control" type = 'text' name = 'faculty'--}}
+                                {{--                                        value = '<?php echo$bursary_statuses[0]->faculty; ?>'/>--}}
                                 <select name="faculty" class="custom-select" id="inputGroupSelect01" >
-{{--                                    <option  selected>Choose...</option>--}}
-                                    <option value=<?php echo $bursary_statuses[0]->faculty; ?> selected><?php echo
-                                        $bursary_statuses[0]->faculty
+                                    {{--                                    <option  selected>Choose...</option>--}}
+                                    <option value=<?php echo $mahapola_statuses[0]->faculty; ?> selected><?php echo
+                                        $mahapola_statuses[0]->faculty
                                         ?></option>
                                     {{--                                                <option value="Graduate Studies">Graduate Studies</option>--}}
                                     <option value="Agricultural Sciences">Agricultural Sciences</option>
@@ -49,12 +49,12 @@
                         <tr>
                             <td>Installment Name</td>
                             <td>
-{{--                                <input class="form-control" type = 'text' name = 'installment_name'--}}
-{{--                                       value = '<?php echo$bursary_statuses[0]->installment_name; ?>'/>--}}
+                                {{--                                <input class="form-control" type = 'text' name = 'installment_name'--}}
+                                {{--                                       value = '<?php echo$bursary_statuses[0]->installment_name; ?>'/>--}}
                                 <select name="installment_name" class="custom-select" id="inputGroupSelect01" >
-{{--                                    <option selected>Choose...</option>--}}
-                                    <option value=<?php echo $bursary_statuses[0]->installment_name; ?> selected><?php echo
-                                        $bursary_statuses[0]->installment_name
+                                    {{--                                    <option selected>Choose...</option>--}}
+                                    <option value=<?php echo $mahapola_statuses[0]->installment_name; ?> selected><?php echo
+                                        $mahapola_statuses[0]->installment_name
                                         ?></option>
                                     <option value="Installment 01">Installment 01</option>
                                     <option value="Installment 02">Installment 02</option>
@@ -112,8 +112,8 @@
                         <tr>
                             <td>Description</td>
                             <td>
-                                <input class="form-control" type = 'text' name = 'bursary_description'
-                                       value = '<?php echo $bursary_statuses[0]->bursary_description; ?>'/>
+                                <input class="form-control" type = 'text' name = 'mahalpola_description'
+                                       value = '<?php echo $mahapola_statuses[0]->mahalpola_description; ?>'/>
                             </td>
                         </tr>
 

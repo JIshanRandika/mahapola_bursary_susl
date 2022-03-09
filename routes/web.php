@@ -80,6 +80,10 @@ Route::get('bsedit/{id}','App\Http\Controllers\BursaryStatusesDetailsController@
 Route::post('bsedit/{id}','App\Http\Controllers\BursaryStatusesDetailsController@edit');
 Route::get('bsdelete/{id}','App\Http\Controllers\BursaryStatusesDetailsController@destroy');
 
+Route::get('msedit/{id}','App\Http\Controllers\MahapolaStatusesDetailsController@show');
+Route::post('msedit/{id}','App\Http\Controllers\MahapolaStatusesDetailsController@edit');
+Route::get('msdelete/{id}','App\Http\Controllers\MahapolaStatusesDetailsController@destroy');
+
 
 Route::get('/tab1',function (){
     return view('home');

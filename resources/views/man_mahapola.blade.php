@@ -36,6 +36,42 @@
                             </div>
                         @endif
 
+                            {{--                        ============================--}}
+                            @if(checkPermission(['admin']))
+
+                                @foreach($mahapola_status as $s)
+
+                                    @if($s->level!=='0')
+                                        <div class="card text-center m-5">
+                                            <div class="card-header">
+                                                {{ $s->installment_name }}
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                                <h6 class="card-text">{{ $s->status }}</h6>
+                                                <p class="card-text">{{ $s->mahalpola_description }}</p>
+
+                                                @if($s->level!=='1')
+                                                    <h6 class="card-text">Comments by Assistant Registrar:</h6>
+                                                    @foreach($mahapola_ar_comment as $arc)
+                                                        @if($s->id==$arc->status_id)
+                                                            <p>{{$arc->mahapola_ar_comment}}</p>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                <a href = 'msedit/{{ $s->id }}'>View</a>
+                                                <a href = 'msdelete/{{ $s->id }}'>Delete</a>
+                                                Last update: {{ $s->updated_at }}
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
+                            {{--====================================--}}
+
                         @if(checkPermission(['vice_chancellor','registrar','finance_division_clerk','student']))
 
                             @foreach($mahapola_status as $s)
