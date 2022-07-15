@@ -84,6 +84,13 @@ Route::get('msedit/{id}','App\Http\Controllers\MahapolaStatusesDetailsController
 Route::post('msedit/{id}','App\Http\Controllers\MahapolaStatusesDetailsController@edit');
 Route::get('msdelete/{id}','App\Http\Controllers\MahapolaStatusesDetailsController@destroy');
 
+Route::get('/forget-password', '\App\Http\Controllers\Auth\ForgotPasswordController@getEmail');
+Route::post('/forget-password', '\App\Http\Controllers\Auth\ForgotPasswordController@postEmail');
+
+
+Route::get('/reset-password/{token}', '\App\Http\Controllers\Auth\ResetPasswordController@showResetForm');
+Route::post('/reset-password', '\App\Http\Controllers\Auth\ResetPasswordController@reset');
+
 
 Route::get('/tab1',function (){
     return view('home');
