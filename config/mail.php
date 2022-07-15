@@ -97,7 +97,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'slrideshare.info@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Ishan'),
+        'name' => env('MAIL_FROM_NAME', 'Jayaweerage Ishan Randika'),
     ],
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
     /*
