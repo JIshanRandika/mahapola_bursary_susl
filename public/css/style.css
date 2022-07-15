@@ -27,10 +27,12 @@
 .welcomebgimage{
     background-image:url('/images/bgwelcome.png') ;
     width: 100%;
+    justify-content: center;
+    display: inline-flex;
 
 
 
-    /*height: 1000px;*/
+    height: 100vh;
 }
 
 .mycenter{
