@@ -34,8 +34,8 @@ return [
     */
     'host' => env('MAIL_HOST', 'smtp.gmail.com'),
     'port' => env('MAIL_PORT', 587),
-    'password' => env('MAIL_PASSWORD','mtloptegkjujlzcm'),
-    'username' => env('MAIL_USERNAME','slrideshare.info@gmail.com'),
+    'password' => env('MAIL_PASSWORD','xncuakgzrociyvrn'),
+    'username' => env('MAIL_USERNAME','jishanrandika@gmail.com'),
 //    'from' => ['address' => 'myusername@gmail.com', 'name' => 'hawle'],
     'mailers' => [
         'smtp' => [
@@ -43,8 +43,8 @@ return [
             'host' => env('MAIL_HOST', 'smtp.gmail.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME','slrideshare.info@gmail.com'),
-            'password' => env('MAIL_PASSWORD','mtloptegkjujlzcm'),
+            'username' => env('MAIL_USERNAME','jishanrandika@gmail.com'),
+            'password' => env('MAIL_PASSWORD','xncuakgzrociyvrn'),
             'timeout' => null,
             'auth_mode' => null,
         ],
@@ -96,8 +96,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'slrideshare.info@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Jayaweerage Ishan Randika'),
+        'address' => env('MAIL_FROM_ADDRESS', 'jishanrandika@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Mahapola & Bursary Internal Process Checker - Sabaragamuwa University of Sri Lanka'),
     ],
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
     /*

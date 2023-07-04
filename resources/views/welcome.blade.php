@@ -48,9 +48,9 @@
 
                     <div class="mycenter">
                         <div class="wecomebox " style="background: #6b7280">
-                            <h1 style="font-weight: bold">Welcome To</h1>
-                            <h2>Mahapola & Bursary Internal Process Checker</h2>
-                            <h5>Sabaragamuwa University of Sri Lanka</h5>
+                            <div style="font-weight: bold; font-size: 3vw">Welcome To</div>
+                            <div style="font-weight: bold; font-size: 3vw">Mahapola & Bursary Internal Process Checker</div>
+                            <div style="font-size: 1.5vw">Sabaragamuwa University of Sri Lanka</div>
                         </div>
                     </div>
 {{--            <img src="/images/img.jpeg">--}}
