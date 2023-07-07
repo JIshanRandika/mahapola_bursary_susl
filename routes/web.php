@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('user', \App\Http\Controllers\UserController::class);
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/mahapola', [App\Http\Controllers\MahapolaController::class, 'index'])->name('mahapola');
 Route::get('/geomahapola', [App\Http\Controllers\GeoMahapolaController::class, 'index'])->name('geomahapola');

@@ -4,6 +4,16 @@
 
 @section('content')
     <div class="card p-3 mb-2  text-white">
+        <a style="
+        background-color: #0a53be;width: 120px;
+        border-radius: 10px;
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+        margin-bottom: 10px;
+        " href="{{ route('user.create') }}" aria-expanded="false" v-pre>
+            Add New User
+        </a>
         <h5 class="card-header bg-secondary">User Details</h5>
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -29,7 +39,9 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            @if ($user->is_permission == '1')
+                            @if ($user->is_permission == '-1')
+                                <td>{{'Admin' }}</td>
+                            @elseif ($user->is_permission == '1')
                                 <td>{{'Vice Chancellor' }}</td>
                             @elseif ($user->is_permission == '2')
                                 <td>{{'Registrar' }}</td>

@@ -9,7 +9,7 @@ class UserDetailsController extends Controller
 {
     //
     public function index(){
-        $users = DB::select('select * from users where is_permission > 0');
+        $users = DB::select('select * from users');
         return view('user_edit_view',['users'=>$users]);
     }
 
