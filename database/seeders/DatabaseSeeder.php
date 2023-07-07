@@ -85,6 +85,12 @@ class DatabaseSeeder extends Seeder
                 'password'=> bcrypt('123456'),
             ],
             [
+                'name'=>'Assistant Registrar of The Faculty of Computing',
+                'email'=>'computingar@gmail.com',
+                'is_permission'=>'39',
+                'password'=> bcrypt('123456'),
+            ],
+            [
                 'name'=>'Student Affairs Division Clerk',
                 'email'=>'stdaff@gmail.com',
                 'is_permission'=>'4',

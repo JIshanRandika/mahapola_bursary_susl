@@ -51,7 +51,8 @@
                                                 ($users[0]->is_permission == '36' ? "Assistant Registrar of The Faculty of Medicine" :
                                                     ($users[0]->is_permission == '37' ? "Assistant Registrar of The Faculty of Social Sciences & Languages" :
                                                         ($users[0]->is_permission == '38' ? "Assistant Registrar of The Faculty of Technology" :
-                                                            ($users[0]->is_permission == '4' ? "Student Affairs Division Clerk" : "Finance Division Clerk")))))))))))
+                                                            ($users[0]->is_permission == '39' ? "Assistant Registrar of The Faculty of Computing" :
+                                                                ($users[0]->is_permission == '4' ? "Student Affairs Division Clerk" : "Finance Division Clerk"))))))))))))
 
                 ?></option>
                 <option value=1>Vice Chancellor</option>

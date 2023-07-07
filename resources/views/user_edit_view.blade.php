@@ -49,6 +49,8 @@
                                 <td>{{'Assistant Registrar of The Faculty of Social Sciences & Languages' }}</td>
                             @elseif ($user->is_permission == '38')
                                 <td>{{'Assistant Registrar of The Faculty of Technology' }}</td>
+                            @elseif ($user->is_permission == '39')
+                                <td>{{'Assistant Registrar of The Faculty of Computing' }}</td>
                             @elseif ($user->is_permission == '4')
                                 <td>{{'Student Affairs Division Clerk' }}</td>
                             @else

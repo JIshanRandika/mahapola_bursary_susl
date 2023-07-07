@@ -5,29 +5,24 @@
 
 
 
+    {{--=================================--}}
+    {{--============Burrsary=============--}}
+    {{--=================================--}}
 
-    {{--=================================--}}
-    {{--============Mahapola=============--}}
-    {{--=================================--}}
 
     <div class="">
-        <a class="welcomebutton" href={{url('bursary')}} aria-expanded="false" v-pre>
-            Switch to Bursary
+        <a class="welcomebutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
+            Switch to Mahapola
         </a>
         @if(checkPermission(['admin']))
             <a class="welcomebutton" href={{url('edit-records')}} aria-expanded="false" v-pre>
                 Users
             </a>
         @endif
-
-
         <div style="margin-top: 20px" class="myrow">
-
             <div class="col-md-12">
-
                 <div class="panel panel-default">
-                    @include('component.faculty_mahapola')
-
+                    @include('component.faculty_bursary')
 
                     <div class="panel-body">
                         @if ($message = Session::get('success'))
@@ -36,47 +31,59 @@
                             </div>
                         @endif
 
-                            {{--                        ============================--}}
-                            @if(checkPermission(['admin']))
+                        {{--=========================================--}}
+                        @if(checkPermission(['admin']))
 
-                                @foreach($mahapola_status as $s)
+                            @foreach($bursary_status as $s)
 
-                                    @if($s->level!=='0')
-                                        <div class="card text-center m-5">
-                                            <div class="card-header">
-                                                {{ $s->installment_name }}
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
-                                                <h6 class="card-text">{{ $s->status }}</h6>
-                                                <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                @if($s->level!=='0')
 
-                                                @if($s->level!=='1')
-                                                    <h6 class="card-text">Comments by Assistant Registrar:</h6>
-                                                    @foreach($mahapola_ar_comment as $arc)
-                                                        @if($s->id==$arc->status_id)
-                                                            <p>{{$arc->mahapola_ar_comment}}</p>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
+                                    <div class="card text-center m-5">
+                                        <div class="card-header">
 
-                                            </div>
-                                            <div class="card-footer text-muted">
-                                                <a href = 'msedit/{{ $s->id }}'>View</a>
-                                                <a href = 'msdelete/{{ $s->id }}'>Delete</a>
-                                                Last update: {{ $s->updated_at }}
-                                            </div>
+                                            {{ $s->installment_name }}
                                         </div>
-                                    @endif
-                                @endforeach
-                            @endif
-                            {{--====================================--}}
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                            <h6 class="card-text">{{ $s->status }}</h6>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
-                        @if(checkPermission(['vice_chancellor','registrar','finance_division_clerk','student']))
+                                            @if($s->level!=='1')
+                                                <h6 class="card-text">Comments by Assistant Registrar:</h6>
+                                                @foreach($bursary_ar_comment as $arc)
+                                                    @if($s->id==$arc->status_id)
+                                                        <p>{{$arc->bursary_ar_comment}}</p>
+                                                    @endif
+                                                @endforeach
 
-                            @foreach($mahapola_status as $s)
+                                            @endif
 
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                            @if($s->level!=='1'&&$s->level!=='2'&&$s->level!=='3')
+                                                <h6 class="card-text">Comments by Registrar/VC:</h6>
+                                                @foreach($bursary_vc_or_reg_comment as $vrc)
+                                                    @if($s->id==$vrc->status_id)
+                                                        <p>{{$vrc->bursary_vc_or_reg_comment}}</p>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            <a href = 'bsedit/{{ $s->id }}'>View</a>
+                                            <a href = 'bsdelete/{{ $s->id }}'>Delete</a>
+                                            Last update: {{ $s->updated_at }}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+
+                        {{--                        =======================================--}}
+                        @if(checkPermission(['student']))
+
+                            @foreach($bursary_status as $s)
+
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -84,13 +91,23 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
                                             @if($s->level!=='1')
                                                 <h6 class="card-text">Comments by Assistant Registrar:</h6>
-                                                @foreach($mahapola_ar_comment as $arc)
+                                                @foreach($bursary_ar_comment as $arc)
                                                     @if($s->id==$arc->status_id)
-                                                        <p>{{$arc->mahapola_ar_comment}}</p>
+                                                        <p>{{$arc->bursary_ar_comment}}</p>
+                                                    @endif
+                                                @endforeach
+
+                                            @endif
+
+                                            @if($s->level!=='1'&&$s->level!=='2'&&$s->level!=='3')
+                                                <h6 class="card-text">Comments by Registrar/VC:</h6>
+                                                @foreach($bursary_vc_or_reg_comment as $vrc)
+                                                    @if($s->id==$vrc->status_id)
+                                                        <p>{{$vrc->bursary_vc_or_reg_comment}}</p>
                                                     @endif
                                                 @endforeach
                                             @endif
@@ -105,12 +122,12 @@
                         @endif
 
 
-                        {{--                            Assistant Registrar of The Faculty of Graduate Studies--}}
+                        {{--                            +++++++++++++++++++++++--}}
+                        @if(checkPermission(['finance_division_clerk']))
 
-                        @if(checkPermission(['graduate_studies_assistant_registrar']))
+                            @foreach($bursary_status as $s)
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -118,19 +135,169 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
+
+                                            @if($s->level!=='1')
+                                                <h6 class="card-text">Comments by Assistant Registrar:</h6>
+                                                @foreach($bursary_ar_comment as $arc)
+                                                    @if($s->id==$arc->status_id)
+                                                        <p>{{$arc->bursary_ar_comment}}</p>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+
+                                            @if($s->level=='6')
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Send the Final Vouchers to Bank
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            @endif
+                                            @if($s->level=='7')
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                            <button type="submit" class="btn btn-danger">
+                                                                Finished the current progress
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            @endif
 
 
-                                            @if($s->level=='2' && $s->faculty=='Graduate Studies')
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            Last update: {{ $s->updated_at }}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                        {{--                            VC ===================--}}
+                        @if(checkPermission(['vice_chancellor']))
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                            @foreach($bursary_status as $s)
+
+                                @if($s->level!=='0' && $s->faculty=='Computing')
+                                    <div class="card text-center m-5">
+                                        <div class="card-header">
+                                            {{ $s->installment_name }}
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                            <h6 class="card-text">{{ $s->status }}</h6>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
+
+                                            @if($s->level!=='1')
+                                                <h6 class="card-text">Comments by Assistant Registrar:</h6>
+                                                @foreach($bursary_ar_comment as $arc)
+                                                    @if($s->id==$arc->status_id)
+                                                        <p>{{$arc->bursary_ar_comment}}</p>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+
+                                            @if($s->level=='41')
+
+                                                <form action="{{ route('bursary_vc_or_reg_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_vc_or_reg_comment"
+                                                                       class="form-control" placeholder="Comment">
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center m-1">
+                                                            <button name="status_id" value="{{$s->id}}" type="submit"
+                                                                    class="btn btn-info">Add Comment
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+
+
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Recommended the List and send to Student Affairs
+                                                                Division
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            @endif
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            Last update: {{ $s->updated_at }}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+
+
+                        {{--                            Reg--}}
+                        @if(checkPermission(['registrar']))
+
+                            @foreach($bursary_status as $s)
+
+                                @if($s->level!=='0' && $s->faculty=='Computing')
+                                    <div class="card text-center m-5">
+                                        <div class="card-header">
+                                            {{ $s->installment_name }}
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                            <h6 class="card-text">{{ $s->status }}</h6>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
+
+                                            @if($s->level!=='1')
+                                                <h6 class="card-text">Comments by Assistant Registrar:</h6>
+                                                @foreach($bursary_ar_comment as $arc)
+                                                    @if($s->id==$arc->status_id)
+                                                        <p>{{$arc->bursary_ar_comment}}</p>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+
+                                            @if($s->level=='42')
+
+                                                <form action="{{ route('bursary_vc_or_reg_comments.store') }}" method="POST">
+                                                    @csrf
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <strong>Comment:</strong>
+                                                                <input type="text" name="bursary_vc_or_reg_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -146,7 +313,72 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Recommended the List and send to Student Affairs
+                                                                Division
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            @endif
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            Last update: {{ $s->updated_at }}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                        {{--                            Assistant Registrar of The Faculty of Graduate Studies--}}
+
+                        @if(checkPermission(['graduate_studies_assistant_registrar']))
+
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing' )
+                                    <div class="card text-center m-5">
+                                        <div class="card-header">
+                                            Installment for: {{ $s->bursary_year }} {{ $s->bursary_month }}
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                            <h6 class="card-text">{{ $s->status }}</h6>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
+
+
+                                            @if($s->level=='2' && $s->faculty=='Graduate Studies')
+
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
+                                                    @csrf
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <strong>Comment:</strong>
+                                                                <input type="text" name="bursary_ar_comment"
+                                                                       class="form-control" placeholder="Comment">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center m-1">
+                                                            <button name="status_id" value="{{$s->id}}" type="submit"
+                                                                    class="btn btn-info">Add Comment
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+
+
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -178,11 +410,11 @@
                         @endif
 
 
-                        {{--                            Assistant Registrar of The Faculty of Agricultural Sciences--}}
+                        {{--                            Assistant Registrar of The Faculty of Agriculture Science--}}
                         @if(checkPermission(['agriculture_science_assistant_registrar']))
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -190,19 +422,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
 
                                             @if($s->level=='2' && $s->faculty=='Agricultural Sciences')
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -218,7 +450,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -253,8 +485,8 @@
 
                         @if(checkPermission(['applied_sciences_assistant_registrar']))
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -262,19 +494,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
 
                                             @if($s->level=='2' && $s->faculty=='Applied Sciences')
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -290,7 +522,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -323,8 +555,8 @@
                         {{--                            Assistant Registrar of The Faculty of Geomatics--}}
                         @if(checkPermission(['geomatics_assistant_registrar']))
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -332,19 +564,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Geomatics')
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -360,7 +592,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -394,8 +626,8 @@
                         {{--                            Assistant Registrar of The Faculty of Management Studies--}}
                         @if(checkPermission(['management_studies_assistant_registrar']))
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -403,19 +635,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
 
                                             @if($s->level=='2' && $s->faculty=='Management Studies')
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -431,7 +663,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -465,8 +697,8 @@
                         {{--                            Assistant Registrar of The Faculty of Medicine--}}
                         @if(checkPermission(['medicine_assistant_registrar']))
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -474,19 +706,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
 
                                             @if($s->level=='2' && $s->faculty=='Medicine')
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -502,7 +734,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -536,8 +768,8 @@
 
                         @if(checkPermission(['social_sciences_assistant_registrar']))
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Social Sciences & Languages')
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -545,19 +777,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
 
                                             @if($s->level=='2' && $s->faculty=='Social Sciences & Languages')
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -573,7 +805,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -606,8 +838,8 @@
                         {{--                            Assistant Registrar of The Faculty of Technology--}}
                         @if(checkPermission(['technology_assistant_registrar']))
 
-                            @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                            @foreach($bursary_status as $s)
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -615,19 +847,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
 
                                             @if($s->level=='2' && $s->faculty=='Technology')
 
-                                                <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                <form action="{{ route('bursary_ar_comments.store') }}" method="POST">
                                                     @csrf
 
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <div class="form-group">
                                                                 <strong>Comment:</strong>
-                                                                <input type="text" name="mahapola_ar_comment"
+                                                                <input type="text" name="bursary_ar_comment"
                                                                        class="form-control" placeholder="Comment">
                                                             </div>
                                                         </div>
@@ -643,7 +875,7 @@
                                                 </form>
 
 
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -695,7 +927,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('mahapola_statuses.store') }}" method="POST">
+                            <form action="{{ route('bursary_statuses.store') }}" method="POST">
                                 @csrf
 
                                 <div style="margin: 20px" class="row">
@@ -711,7 +943,7 @@
 
                                             <select name="faculty" class="custom-select" id="inputGroupSelect01" >
                                                 <option selected>Choose...</option>
-{{--                                                <option value="Graduate Studies">Graduate Studies</option>--}}
+                                                {{--                                                <option value="Graduate Studies">Graduate Studies</option>--}}
                                                 <option value="Agricultural Sciences">Agricultural Sciences</option>
                                                 <option value="Applied Sciences">Applied Sciences</option>
                                                 <option value="Geomatics">Geomatics</option>
@@ -729,10 +961,11 @@
                                     {{--                                    <div class="col-xs-12 col-sm-12 col-md-12">--}}
                                     {{--                                        <div class="form-group">--}}
                                     {{--                                            <strong>Installment year:</strong>--}}
-                                    {{--                                            <input type="text" name="mahapola_year" class="form-control"--}}
+                                    {{--                                            <input type="text" name="bursary_year" class="form-control"--}}
                                     {{--                                                   placeholder="Installment year">--}}
                                     {{--                                        </div>--}}
                                     {{--                                    </div>--}}
+
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong>Installment Name:</strong>
@@ -795,17 +1028,18 @@
                                             {{--                                                   placeholder="Faculty">--}}
                                         </div>
                                     </div>
+
                                     {{--                                    <div class="col-xs-12 col-sm-12 col-md-12">--}}
                                     {{--                                        <div class="form-group">--}}
                                     {{--                                            <strong>Installment month:</strong>--}}
-                                    {{--                                            <input type="text" name="mahapola_month" class="form-control"--}}
+                                    {{--                                            <input type="text" name="bursary_month" class="form-control"--}}
                                     {{--                                                   placeholder="Installment month">--}}
                                     {{--                                        </div>--}}
                                     {{--                                    </div>--}}
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong>Installment Description:</strong>
-                                            <input type="text" name="mahalpola_description" class="form-control"
+                                            <input type="text" name="bursary_description" class="form-control"
                                                    placeholder="Installment Description">
                                         </div>
                                     </div>
@@ -820,10 +1054,10 @@
 
 
 
-                            @foreach($mahapola_status as $s)
+                            @foreach($bursary_status as $s)
 
 
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
 
 
 
@@ -834,19 +1068,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
                                             <h6 class="card-text">{{ $s->status }}</h6>
-                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+                                            <p class="card-text">{{ $s->bursary_description }}</p>
 
-                                            @if($s->level!=='1' && $s->faculty=='Applied Sciences')
+                                            @if($s->level!=='1')
                                                 <h6 class="card-text">Comments by Assistant Registrar:</h6>
-                                                @foreach($mahapola_ar_comment as $arc)
+                                                @foreach($bursary_ar_comment as $arc)
                                                     @if($s->id==$arc->status_id)
-                                                        <p>{{$arc->mahapola_ar_comment}}</p>
+                                                        <p>{{$arc->bursary_ar_comment}}</p>
                                                     @endif
                                                 @endforeach
                                             @endif
 
-                                            @if($s->level=='1' && $s->faculty=='Applied Sciences')
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                            @if($s->level=='1')
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -862,16 +1096,32 @@
                                                 </form>
                                             @endif
 
-                                            @if($s->level=='3' && $s->faculty=='Applied Sciences')
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                            @if($s->level=='3')
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
                                                     <div class="row">
 
                                                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                                            <button type="submit" class="btn btn-primary">
-                                                                Send the Finalized List to the UGC
+                                                            <button name="approval" value="VC" type="submit" class="btn btn-primary">
+                                                                Send the Finalized List to VC
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+
+                                                <h5>OR</h5>
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                            <button name="approval" value="Registrar" type="submit" class="btn btn-primary">
+                                                                Send the Finalized List to Registrar
                                                             </button>
                                                         </div>
                                                     </div>
@@ -879,8 +1129,25 @@
                                                 </form>
                                             @endif
 
-                                            @if($s->level=='4' && $s->faculty=='Applied Sciences' )
-                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                            @if($s->level=='5')
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Send to the Finance Branch
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            @endif
+
+                                            @if($s->level=='7')
+                                                <form action="{{ route('bursary_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
@@ -895,6 +1162,7 @@
 
                                                 </form>
                                             @endif
+
 
                                         </div>
                                         <div class="card-footer text-muted">
@@ -919,6 +1187,7 @@
             </div>
         </div>
     </div>
+
 
 
 

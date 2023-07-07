@@ -48,6 +48,9 @@ function getMyPermission($id)
         case 38:
             return 'technology_assistant_registrar';
             break;
+        case 39:
+            return 'computing_assistant_registrar';
+            break;
         case 4:
             return 'student_affairs_division_clerk';
             break;

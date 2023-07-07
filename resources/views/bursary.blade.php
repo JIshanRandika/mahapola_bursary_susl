@@ -953,6 +953,7 @@
                                                 <option value="Medicine">Medicine</option>
                                                 <option value="Social Sciences & Languages">Social Sciences & Languages</option>
                                                 <option value="Technology">Technology</option>
+                                                <option value="Computing">Computing</option>
                                             </select>
 
 {{--                                            <input type="text" name="faculty" class="form-control"--}}
@@ -1023,6 +1024,7 @@
                                                 <option value="Installment 48">Installment 48</option>
                                                 <option value="Installment 49">Installment 49</option>
                                                 <option value="Installment 50">Installment 50</option>
+
                                             </select>
 
                                             {{--                                            <input type="text" name="faculty" class="form-control"--}}

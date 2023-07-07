@@ -30,6 +30,7 @@ Route::get('/medmahapola', [App\Http\Controllers\MedMahapolaController::class, '
 Route::get('/socialmahapola', [App\Http\Controllers\SocialMahapolaController::class, 'index'])->name('socialmahapola');
 Route::get('/techmahapola', [App\Http\Controllers\TechMahapolaController::class, 'index'])->name('techmahapola');
 Route::get('/agrimahapola', [App\Http\Controllers\AgriMahapolaController::class, 'index'])->name('agrimahapola');
+Route::get('/focmahapola', [App\Http\Controllers\FocMahapolaController::class, 'index'])->name('focmahapola');
 
 Route::get('/bursary', [App\Http\Controllers\BursaryController::class, 'index'])->name('bursary');
 Route::get('/appliedbursary', [App\Http\Controllers\AppliedBursaryController::class, 'index'])->name('appliedbursary');
@@ -40,6 +41,7 @@ Route::get('/medbursary', [App\Http\Controllers\MedBursaryController::class, 'in
 Route::get('/socialbursary', [App\Http\Controllers\SocialBursaryController::class, 'index'])->name('socialbursary');
 Route::get('/techbursary', [App\Http\Controllers\TechBursaryController::class, 'index'])->name('techbursary');
 Route::get('/agribursary', [App\Http\Controllers\AgriBursaryController::class, 'index'])->name('agribursary');
+Route::get('/focbursary', [App\Http\Controllers\FocBursaryController::class, 'index'])->name('focbursary');
 
 
 

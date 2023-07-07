@@ -1,6 +1,9 @@
 <a class="facultybuttons welcomebutton" href={{url('mahapola')}} aria-expanded="false" v-pre>
     All
 </a>
+<a class="facultybuttons welcomebutton" href={{url('focmahapola')}} aria-expanded="false" v-pre>
+    Computing
+</a>
 <a class="facultybuttons welcomebutton" href={{url('agrimahapola')}} aria-expanded="false" v-pre>
     Agricultural Sciences
 </a>

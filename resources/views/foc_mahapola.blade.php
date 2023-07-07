@@ -20,7 +20,6 @@
             </a>
         @endif
 
-
         <div style="margin-top: 20px" class="myrow">
 
             <div class="col-md-12">
@@ -36,47 +35,47 @@
                             </div>
                         @endif
 
-                            {{--                        ============================--}}
-                            @if(checkPermission(['admin']))
+                        {{--                        ============================--}}
+                        @if(checkPermission(['admin']))
 
-                                @foreach($mahapola_status as $s)
+                            @foreach($mahapola_status as $s)
 
-                                    @if($s->level!=='0')
-                                        <div class="card text-center m-5">
-                                            <div class="card-header">
-                                                {{ $s->installment_name }}
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
-                                                <h6 class="card-text">{{ $s->status }}</h6>
-                                                <p class="card-text">{{ $s->mahalpola_description }}</p>
-
-                                                @if($s->level!=='1')
-                                                    <h6 class="card-text">Comments by Assistant Registrar:</h6>
-                                                    @foreach($mahapola_ar_comment as $arc)
-                                                        @if($s->id==$arc->status_id)
-                                                            <p>{{$arc->mahapola_ar_comment}}</p>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-
-                                            </div>
-                                            <div class="card-footer text-muted">
-                                                <a href = 'msedit/{{ $s->id }}'>View</a>
-                                                <a href = 'msdelete/{{ $s->id }}'>Delete</a>
-                                                Last update: {{ $s->updated_at }}
-                                            </div>
+                                @if($s->level!=='0')
+                                    <div class="card text-center m-5">
+                                        <div class="card-header">
+                                            {{ $s->installment_name }}
                                         </div>
-                                    @endif
-                                @endforeach
-                            @endif
-                            {{--====================================--}}
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                            <h6 class="card-text">{{ $s->status }}</h6>
+                                            <p class="card-text">{{ $s->mahalpola_description }}</p>
+
+                                            @if($s->level!=='1')
+                                                <h6 class="card-text">Comments by Assistant Registrar:</h6>
+                                                @foreach($mahapola_ar_comment as $arc)
+                                                    @if($s->id==$arc->status_id)
+                                                        <p>{{$arc->mahapola_ar_comment}}</p>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            <a href = 'msedit/{{ $s->id }}'>View</a>
+                                            <a href = 'msdelete/{{ $s->id }}'>Delete</a>
+                                            Last update: {{ $s->updated_at }}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                        {{--====================================--}}
 
                         @if(checkPermission(['vice_chancellor','registrar','finance_division_clerk','student']))
 
                             @foreach($mahapola_status as $s)
 
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -110,7 +109,7 @@
                         @if(checkPermission(['graduate_studies_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -178,11 +177,11 @@
                         @endif
 
 
-                        {{--                            Assistant Registrar of The Faculty of Agricultural Sciences--}}
+                        {{--                            Assistant Registrar of The Faculty of Agriculture Science--}}
                         @if(checkPermission(['agriculture_science_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -254,7 +253,7 @@
                         @if(checkPermission(['applied_sciences_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -324,7 +323,7 @@
                         @if(checkPermission(['geomatics_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -335,7 +334,7 @@
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
 
-                                            @if($s->level=='2')
+                                            @if($s->level=='2' && $s->faculty=='Geomatics')
 
                                                 <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
                                                     @csrf
@@ -395,7 +394,7 @@
                         @if(checkPermission(['management_studies_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -466,7 +465,7 @@
                         @if(checkPermission(['medicine_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -607,7 +606,7 @@
                         @if(checkPermission(['technology_assistant_registrar']))
 
                             @foreach($mahapola_status as $s)
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
                                     <div class="card text-center m-5">
                                         <div class="card-header">
                                             {{ $s->installment_name }}
@@ -711,7 +710,7 @@
 
                                             <select name="faculty" class="custom-select" id="inputGroupSelect01" >
                                                 <option selected>Choose...</option>
-{{--                                                <option value="Graduate Studies">Graduate Studies</option>--}}
+                                                {{--                                                <option value="Graduate Studies">Graduate Studies</option>--}}
                                                 <option value="Agricultural Sciences">Agricultural Sciences</option>
                                                 <option value="Applied Sciences">Applied Sciences</option>
                                                 <option value="Geomatics">Geomatics</option>
@@ -823,7 +822,7 @@
                             @foreach($mahapola_status as $s)
 
 
-                                @if($s->level!=='0' && $s->faculty=='Applied Sciences')
+                                @if($s->level!=='0' && $s->faculty=='Computing')
 
 
 
@@ -836,7 +835,7 @@
                                             <h6 class="card-text">{{ $s->status }}</h6>
                                             <p class="card-text">{{ $s->mahalpola_description }}</p>
 
-                                            @if($s->level!=='1' && $s->faculty=='Applied Sciences')
+                                            @if($s->level!=='1' && $s->faculty=='Computing')
                                                 <h6 class="card-text">Comments by Assistant Registrar:</h6>
                                                 @foreach($mahapola_ar_comment as $arc)
                                                     @if($s->id==$arc->status_id)
@@ -845,7 +844,7 @@
                                                 @endforeach
                                             @endif
 
-                                            @if($s->level=='1' && $s->faculty=='Applied Sciences')
+                                            @if($s->level=='1' && $s->faculty=='Computing')
                                                 <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -862,7 +861,7 @@
                                                 </form>
                                             @endif
 
-                                            @if($s->level=='3' && $s->faculty=='Applied Sciences')
+                                            @if($s->level=='3' && $s->faculty=='Computing')
                                                 <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -879,7 +878,7 @@
                                                 </form>
                                             @endif
 
-                                            @if($s->level=='4' && $s->faculty=='Applied Sciences' )
+                                            @if($s->level=='4' && $s->faculty=='Computing' )
                                                 <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')

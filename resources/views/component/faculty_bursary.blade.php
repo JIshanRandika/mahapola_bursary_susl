@@ -1,6 +1,9 @@
 <a class="facultybuttons welcomebutton" href={{url('bursary')}} aria-expanded="false" v-pre>
     All
 </a>
+<a class="facultybuttons welcomebutton" href={{url('focbursary')}} aria-expanded="false" v-pre>
+    Computing
+</a>
 <a class="facultybuttons welcomebutton" href={{url('agribursary')}} aria-expanded="false" v-pre>
     Agricultural Sciences
 </a>
