@@ -1,10 +1,5 @@
 .wecomebox{
-    /*margin: 220px;*/
-    /*align-self: center;*/
 
-
-
-    /*width: 80%;*/
     padding: 80px;
     background: #1a202c;
     text-align: center;
@@ -15,7 +10,7 @@
 }
 
 .myrow {
-    /*--bs-gutter-x: 1.5rem;*/
+
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
@@ -51,13 +46,12 @@
     color: #e2e8f0;
     background-color: #6b7280;
     border-radius: 10px;
-    /*width: 400px;*/
+
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 8px;
     padding-top: 8px;
-    /*-webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 35px 28px rgba(0,0,0,0.15);*/
-    /*box-shadow: 0px 10px 13px -7px #000000, 0px 0px 35px 28px rgba(0,0,0,0.15);*/
+
 }
 
 .marginlr{
