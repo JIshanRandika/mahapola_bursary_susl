@@ -32,11 +32,11 @@
                         @endif
 
                             {{--=========================================--}}
-                            @if(checkPermission(['admin']))
+{{--                            @if(checkPermission(['admin']))--}}
 
                                 @foreach($bursary_status as $s)
 
-                                    @if($s->level!=='0')
+                                    @if(checkPermission(['admin']) && $s->faculty=='Applied Sciences')
 
                                         <div class="card text-center m-5">
                                             <div class="card-header">
@@ -76,7 +76,7 @@
                                         </div>
                                     @endif
                                 @endforeach
-                            @endif
+{{--                            @endif--}}
 
                             {{--                        =======================================--}}
                         @if(checkPermission(['student']))

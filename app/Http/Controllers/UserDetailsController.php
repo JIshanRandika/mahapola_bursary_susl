@@ -8,6 +8,10 @@ use DB;
 class UserDetailsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $users = DB::select('select * from users');
         return view('user_edit_view',['users'=>$users]);

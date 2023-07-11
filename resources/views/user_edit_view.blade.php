@@ -3,7 +3,9 @@
 
 
 @section('content')
+    @if(checkPermission(['admin']))
     <div class="card p-3 mb-2  text-white">
+
         <a style="
         background-color: #0a53be;width: 120px;
         border-radius: 10px;
@@ -14,6 +16,7 @@
         " href="{{ route('user.create') }}" aria-expanded="false" v-pre>
             Add New User
         </a>
+
         <h5 class="card-header bg-secondary">User Details</h5>
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -81,8 +84,9 @@
             </table>
 
         </div>
-    </div>
 
+    </div>
+    @endif
 
 
 @endsection

@@ -3,6 +3,7 @@
 
 
 @section('content')
+    @if(checkPermission(['admin']))
 <div class="card p-3 mb-2 bg-secondary text-white">
     <h5 class="card-header">Details</h5>
     @if ($message = Session::get('success'))
@@ -87,5 +88,5 @@
     </div>
     </div>
 </div>
-
+    @endif
 @endsection

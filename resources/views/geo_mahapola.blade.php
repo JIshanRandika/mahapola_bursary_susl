@@ -36,11 +36,11 @@
                         @endif
 
                             {{--                        ============================--}}
-                            @if(checkPermission(['admin']))
+{{--                            @if(checkPermission(['admin']))--}}
 
                                 @foreach($mahapola_status as $s)
 
-                                    @if($s->level!=='0')
+                                    @if(checkPermission(['admin']) && $s->faculty=='Geomatics')
                                         <div class="card text-center m-5">
                                             <div class="card-header">
                                                 {{ $s->installment_name }}
@@ -68,7 +68,7 @@
                                         </div>
                                     @endif
                                 @endforeach
-                            @endif
+{{--                            @endif--}}
                             {{--====================================--}}
 
                         @if(checkPermission(['vice_chancellor','registrar','finance_division_clerk','student']))
