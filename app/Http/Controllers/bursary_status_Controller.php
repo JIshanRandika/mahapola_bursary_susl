@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\bursary_status;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use DB;
+
 
 class bursary_status_Controller extends Controller
 {
@@ -36,6 +39,13 @@ class bursary_status_Controller extends Controller
     public function store(Request $request)
     {
         //
+        $twoDaysAgo = Carbon::now()->subDays(2);
+
+        DB::table('bursary_statuses')
+            ->where('status', 'PAID')
+            ->where('updated_at', '<', $twoDaysAgo)
+            ->delete();
+
         bursary_status::create($request->all());
         return back()->with('success','New Process added successfully');
     }
@@ -110,84 +120,96 @@ class bursary_status_Controller extends Controller
 //            return back()->with('success','System updated successfully');
 //
 //        }
-        if($value==$levelone){
-            $bursary_status->update(
-                [
-                    'status'=>'Recommended the List by the Student Affairs Division and Moved to the Assistant Registrar of the Faculty',
-                    'level'=>'2']
-            );
-            return back()->with('success','System updated successfully');
-
-        }
-        if ($value==$leveltwo) {
-            $bursary_status->update(
-                [
-                    'status' => 'Assistant Registrar of the Faculty send the Finalized List to Students Affairs Division For Finalize the List (Check Registration) & Create Vouchers',
-                    'level' => '3']
-            );
-            return back()->with('success','System updated successfully');
-        }
-        if ($value==$levelthree && $request->approval=="VC") {
-            $bursary_status->update(
-                [
-                    'status' => 'Finalized the List (Check Registration) & Create Vouchers by the Student Affairs Division And Send To Vice Chancellor For Approval',
-                    'level' => '41']
-            );
-            return back()->with('success','System updated successfully');
-        }
-
-        if ($value==$levelthree && $request->approval=="Registrar") {
-            $bursary_status->update(
-                [
-                    'status' => 'Finalized the List (Check Registration) & Create Vouchers by the Student Affairs Division And Send To Registrar For Approval',
-                    'level' => '42']
-            );
-            return back()->with('success','System updated successfully');
-        }
-
-        if ($value==$levelfourone) {
-            $bursary_status->update(
-                [
-                    'status' => 'Approve Vouchers by the Vice Chancellor of the University And Send To The Student Affairs Division For Finalizing the Process and Create PRM Doc',
-                    'level' => '5']
-            );
-            return back()->with('success','System updated successfully');
-        }
-
-        if ($value==$levelfourtwo) {
-            $bursary_status->update(
-                [
-                    'status' => 'Approve Vouchers by the Registrar of the University And Send To The Student Affairs Division For Finalizing the Process and Create PRM Doc',
-                    'level' => '5']
-            );
-            return back()->with('success','System updated successfully');
-        }
-
-        if ($value==$levelfive) {
-            $bursary_status->update(
-                [
-                    'status' => 'Finalized the Process and Created PRM Doc. Send To The Finance Division Clerk',
-                    'level' => '6']
-            );
-            return back()->with('success','System updated successfully');
-        }
-        if ($value==$levelsix) {
+        if ($request->paidbursary) {
             $bursary_status->update(
                 [
                     'status' => 'PAID',
                     'level' => '7']
             );
-            return back()->with('success','System updated successfully');
+            return back()->with('success','Marked as paid');
+        }else{
+            if($value==$levelone){
+                $bursary_status->update(
+                    [
+                        'status'=>'Recommended the List by the Student Affairs Division and Moved to the Assistant Registrar of the Faculty',
+                        'level'=>'2']
+                );
+                return back()->with('success','System updated successfully');
+
+            }
+            if ($value==$leveltwo) {
+                $bursary_status->update(
+                    [
+                        'status' => 'Assistant Registrar of the Faculty send the Finalized List to Students Affairs Division For Finalize the List (Check Registration) & Create Vouchers',
+                        'level' => '3']
+                );
+                return back()->with('success','System updated successfully');
+            }
+            if ($value==$levelthree && $request->approval=="VC") {
+                $bursary_status->update(
+                    [
+                        'status' => 'Finalized the List (Check Registration) & Create Vouchers by the Student Affairs Division And Send To Vice Chancellor For Approval',
+                        'level' => '41']
+                );
+                return back()->with('success','System updated successfully');
+            }
+
+            if ($value==$levelthree && $request->approval=="Registrar") {
+                $bursary_status->update(
+                    [
+                        'status' => 'Finalized the List (Check Registration) & Create Vouchers by the Student Affairs Division And Send To Registrar For Approval',
+                        'level' => '42']
+                );
+                return back()->with('success','System updated successfully');
+            }
+
+            if ($value==$levelfourone) {
+                $bursary_status->update(
+                    [
+                        'status' => 'Approve Vouchers by the Vice Chancellor of the University And Send To The Student Affairs Division For Finalizing the Process and Create PRM Doc',
+                        'level' => '5']
+                );
+                return back()->with('success','System updated successfully');
+            }
+
+            if ($value==$levelfourtwo) {
+                $bursary_status->update(
+                    [
+                        'status' => 'Approve Vouchers by the Registrar of the University And Send To The Student Affairs Division For Finalizing the Process and Create PRM Doc',
+                        'level' => '5']
+                );
+                return back()->with('success','System updated successfully');
+            }
+
+            if ($value==$levelfive) {
+                $bursary_status->update(
+                    [
+                        'status' => 'Finalized the Process and Created PRM Doc. Send To The Finance Division Clerk',
+                        'level' => '6']
+                );
+                return back()->with('success','System updated successfully');
+            }
+            if ($value==$levelsix) {
+                $bursary_status->update(
+                    [
+                        'status' => 'PAID',
+                        'level' => '7']
+                );
+                return back()->with('success','System updated successfully');
+            }
+
+
+
+            if ($value==$levelseven) {
+                $bursary_status->update(
+                    [
+                        'status' => 'Process Finished',
+                        'level' => '0']
+                );
+                return back()->with('success','System updated successfully');
+            }
         }
 
-        if ($value==$levelseven) {
-            $bursary_status->update(
-                [
-                    'status' => 'Process Finished',
-                    'level' => '0']
-            );
-            return back()->with('success','System updated successfully');
-        }
 
 
         return back()->with('success','System updated successfully');

@@ -66,6 +66,8 @@ Route::resource('bursary_vc_or_reg_comments', \App\Http\Controllers\bursary_vc_o
 Route::resource('bursary_ar_comments', \App\Http\Controllers\bursary_ar_comment_Controller::class);
 Route::resource('mahapola_ar_comments', \App\Http\Controllers\mahapola_ar_comment_Controller::class);
 
+//Route::resource('mahapolaupdatepaid/{id}', \App\Http\Controllers\mahapola_ar_comment_Controller::class);
+
 
 Route::get('/getPDF', [App\Http\Controllers\PDFController::class, 'download']);
 

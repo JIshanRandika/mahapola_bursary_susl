@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('delete:paid-status-records')->daily();
         // $schedule->command('inspire')->hourly();
     }
 

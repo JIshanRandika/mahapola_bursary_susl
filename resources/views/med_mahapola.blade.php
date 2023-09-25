@@ -894,7 +894,21 @@
 
                                                 </form>
                                             @endif
+                                            @if($s->level<7)
+                                                <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
 
+                                                    <div class="row">
+                                                        <input style="display: none" value="paidmahapola" type="text" name="paidmahapola" class="form-control" placeholder="id">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 text-center m-1">
+                                                            <button type="submit" class="btn btn-danger">
+                                                                Mark as Paid
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            @endif
                                         </div>
                                         <div class="card-footer text-muted">
                                             Last update: {{ $s->updated_at }}

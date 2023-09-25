@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\mahapola_status;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use DB;
 
 class mahapola_status_Controller extends Controller
 {
@@ -36,6 +38,13 @@ class mahapola_status_Controller extends Controller
     public function store(Request $request)
     {
         //
+        $twoDaysAgo = Carbon::now()->subDays(2);
+
+        DB::table('mahapola_statuses')
+            ->where('status', 'PAID')
+            ->where('updated_at', '<', $twoDaysAgo)
+            ->delete();
+
         mahapola_status::create($request->all());
         return back()->with('success','New Process added successfully');
     }
@@ -69,6 +78,11 @@ class mahapola_status_Controller extends Controller
      * @param  \App\Models\mahapola_status  $mahapola_status
      * @return \Illuminate\Http\Response
      */
+
+//    public function mahapolaupdatepaid(Request $request, mahapola_status $mahapola_status)
+//    {
+//
+//    }
     public function update(Request $request, mahapola_status $mahapola_status)
     {
         //
@@ -95,52 +109,61 @@ class mahapola_status_Controller extends Controller
 //        }
 
 
-
-
-
-        if($value==$levelzero){
+        if ($request->paidmahapola) {
             $mahapola_status->update(
                 [
-                    'status'=>'Verifying list by Student Affairs Division before send to the Assistant Registrar',
-                    'level'=>'1']
+                    'status' => 'PAID',
+                    'level' => '7']
             );
-            return back()->with('success','System updated successfully');
+            return back()->with('success','Marked as paid');
+        }else{
+            if($value==$levelzero){
+                $mahapola_status->update(
+                    [
+                        'status'=>'Verifying list by Student Affairs Division before send to the Assistant Registrar',
+                        'level'=>'1']
+                );
+                return back()->with('success','System updated successfully');
 
-        }
-        if($value==$levelone){
-            $mahapola_status->update(
-                [
-                    'status'=>'Verifyied by the Student Affairs Division and Moved to the Assistant Registrar of the Faculty',
-                    'level'=>'2']
-            );
-            return back()->with('success','System updated successfully');
+            }
+            if($value==$levelone){
+                $mahapola_status->update(
+                    [
+                        'status'=>'Verifyied by the Student Affairs Division and Moved to the Assistant Registrar of the Faculty',
+                        'level'=>'2']
+                );
+                return back()->with('success','System updated successfully');
 
-        }
-        if ($value==$leveltwo) {
-            $mahapola_status->update(
-                [
-                    'status' => 'Assistant Registrar of the Faculty send the Finalized List to Studenet Affirs Division',
-                    'level' => '3']
-            );
-            return back()->with('success','System updated successfully');
-        }
-        if ($value==$levelthree) {
-            $mahapola_status->update(
-                [
-                    'status' => 'Send the Finalized List to the UGC by the Student Affirs Division',
-                    'level' => '4']
-            );
-            return back()->with('success','System updated successfully');
+            }
+            if ($value==$leveltwo) {
+                $mahapola_status->update(
+                    [
+                        'status' => 'Assistant Registrar of the Faculty send the Finalized List to Studenet Affirs Division',
+                        'level' => '3']
+                );
+                return back()->with('success','System updated successfully');
+            }
+            if ($value==$levelthree) {
+                $mahapola_status->update(
+                    [
+                        'status' => 'Send the Finalized List to the UGC by the Student Affirs Division',
+                        'level' => '4']
+                );
+                return back()->with('success','System updated successfully');
+            }
+
+            if ($value==$levelfour) {
+                $mahapola_status->update(
+                    [
+                        'status' => 'Process Finished',
+                        'level' => '0']
+                );
+                return back()->with('success','System updated successfully');
+            }
         }
 
-        if ($value==$levelfour) {
-            $mahapola_status->update(
-                [
-                    'status' => 'Process Finished',
-                    'level' => '0']
-            );
-            return back()->with('success','System updated successfully');
-        }
+
+
 
 
         return back()->with('success','System updated successfully');
