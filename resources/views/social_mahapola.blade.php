@@ -105,6 +105,78 @@
                         @endif
 
 
+                            {{--                            Assistant Registrar of The Faculty of Computing--}}
+
+                            @if(checkPermission(['computing_assistant_registrar']))
+
+                                @foreach($mahapola_status as $s)
+                                    @if($s->level!=='0' && $s->faculty=='Social Sciences & Languages')
+                                        <div class="card text-center m-5">
+                                            <div class="card-header">
+                                                {{ $s->installment_name }}
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $s->faculty }} {{ $s->batch }}</h5>
+                                                <h6 class="card-text">{{ $s->status }}</h6>
+                                                <p class="card-text">{{ $s->mahalpola_description }}</p>
+
+
+                                                @if($s->level=='2' && $s->faculty=='Computing')
+
+                                                    <form action="{{ route('mahapola_ar_comments.store') }}" method="POST">
+                                                        @csrf
+
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                <div class="form-group">
+                                                                    <strong>Comment:</strong>
+                                                                    <input type="text" name="mahapola_ar_comment"
+                                                                           class="form-control" placeholder="Comment">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 text-center m-1">
+                                                                <button name="status_id" value="{{$s->id}}" type="submit"
+                                                                        class="btn btn-info">Add Comment
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+
+
+                                                    <form action="{{ route('mahapola_statuses.update',$s->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+
+                                                        <div class="row">
+
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                                <button type="submit" class="btn btn-primary">
+                                                                    Recommended the List and send to Student Affairs
+                                                                    Division
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                @endif
+
+
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                Last update: {{ $s->updated_at }}
+                                            </div>
+                                        </div>
+
+                                    @endif
+
+
+                                @endforeach
+
+                            @endif
+
                         {{--                            Assistant Registrar of The Faculty of Graduate Studies--}}
 
                         @if(checkPermission(['graduate_studies_assistant_registrar']))
